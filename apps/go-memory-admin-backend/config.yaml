@@ -1,0 +1,58 @@
+# go-memory-admin-backend 配置：结构在此，密钥走环境变量 ${...}（见 .env.example）
+
+storage:
+  databaseUrl: ${DATABASE_URL}
+  schema: ${DB_SCHEMA} # 空则用 Postgres 默认 schema（public）
+
+http:
+  host: ${HOST:-127.0.0.1}
+  port: ${PORT:-3200}
+
+admin:
+  mountPath: ${ADMIN_MOUNT_PATH:-/admin}
+  bootstrapLogin: ${ADMIN_BOOTSTRAP_LOGIN:-admin}
+  bootstrapPassword: ${ADMIN_BOOTSTRAP_PASSWORD}
+
+# LLM 降级链：按序尝试，前一个可降级失败则尝试下一个
+llm:
+  adapters:
+    dashscope:
+      type: openai-responses
+      baseURL: ${DASHSCOPE_RESPONSES_BASE_URL}
+      apiKey: ${DASHSCOPE_API_KEY}
+  chains:
+    daily: # MemoryDaily 用
+      - provider: dashscope
+        model: qwen3.7-max
+
+# Embedding 降级链（Daily 写 Long 向量用）
+embedding:
+  dimensions: ${EMBEDDING_DIMENSIONS:-1024}
+  adapters:
+    dashscope:
+      type: openai-compatible
+      baseURL: ${DASHSCOPE_EMBEDDING_BASE_URL}
+      apiKey: ${DASHSCOPE_API_KEY}
+  chains:
+    embed:
+      - provider: dashscope
+        model: qwen3.7-text-embedding-flash
+
+# JEV 降级链（MemoryDaily 用）；不需要则整段删除
+jev:
+  adapters:
+    typesafe:
+      type: typesafe
+      baseURL: ${JEV_BASE_URL}
+      apiKey: ${JEV_API_KEY}
+  chains:
+    main:
+      - provider: typesafe
+        model: jev-1.14.0
+
+# 记忆各环节 → 链名的映射（值都是上面 chains 里的链名，不是模型名）
+memory:
+  daily:
+    llm: daily # MemoryDaily.llmProvider
+    jev: main # MemoryDaily.jevProvider（jev 未启用时不被校验）
+    embedding: embed # MemoryDaily.embeddingProvider

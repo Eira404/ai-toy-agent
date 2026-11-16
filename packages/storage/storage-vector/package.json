@@ -1,0 +1,31 @@
+{
+  "name": "toy-storage-vector",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "数据库无关的向量存储 Schema、操作协议与 adapter 契约",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs",
+    "example": "npm run build && node examples/basic.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

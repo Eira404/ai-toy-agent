@@ -1,0 +1,33 @@
+{
+  "name": "toy-memory-weekly",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Weekly Dream：只整理已有 Long 块结构的离线链路（结构操作 + 价值迁移）",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "toy-storage": "0.1.0",
+    "toy-storage-relational": "0.1.0",
+    "toy-memory-long": "0.1.0",
+    "toy-memory-daily": "0.1.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

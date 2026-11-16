@@ -1,0 +1,35 @@
+{
+  "name": "toy-backend-memory",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "记忆后端门面：空间/证据/长期记忆的运维查看与手动 Daily Dream",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "toy-backend-http": "0.1.0",
+    "toy-memory-daily": "0.1.0",
+    "toy-memory-fast": "0.1.0",
+    "toy-memory-long": "0.1.0",
+    "toy-memory-space": "0.1.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

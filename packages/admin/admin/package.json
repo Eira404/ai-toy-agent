@@ -1,0 +1,41 @@
+{
+  "name": "toy-admin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "管理员能力注册、鉴权分发与调用审计 Cordis 插件",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p test/tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "example": "npm run build && node examples/basic.mjs",
+    "test:live": "npm run build && node --env-file=../../../.env test/live.mjs"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "cordis": "^4.0.0-rc.12",
+    "toy-admin-auth": "0.1.0",
+    "toy-storage": "0.1.0",
+    "toy-storage-relational": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "pg": "^8.16.3",
+    "toy-storage-postgres": "0.1.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "toy-memory-value",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "记忆价值引擎：用户反馈、重要性与正文变化判断，以及强化、幂律衰减和生命周期计算",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md",
+    "examples"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs",
+    "example": "npm run build && node examples/basic.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "toy-llm": "0.1.0",
+    "toy-model-support": "0.1.0",
+    "toy-memory-feedback": "0.1.0",
+    "toy-memory-daily": "0.1.0",
+    "toy-memory-weekly": "0.1.0",
+    "toy-memory-long": "0.1.0",
+    "zod": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

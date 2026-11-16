@@ -1,0 +1,37 @@
+{
+  "name": "toy-storage-write-queue",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "基于 Cordis 的命名存储异步写入队列",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs",
+    "test:live": "npm run build && node --env-file=../../../.env test/live.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "toy-storage": "0.1.0"
+  },
+  "devDependencies": {
+    "pg": "^8.16.3",
+    "toy-storage-postgres": "0.1.0",
+    "toy-storage-relational": "0.1.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

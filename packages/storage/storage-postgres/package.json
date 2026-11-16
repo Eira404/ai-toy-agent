@@ -1,0 +1,39 @@
+{
+  "name": "toy-storage-postgres",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "基于 PostgreSQL 的关系型存储 Cordis 插件",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs",
+    "test:live": "npm run build && node --env-file=../../../.env test/live.mjs",
+    "check:connection": "node --env-file=../../../.env examples/check-connection.mjs",
+    "example": "npm run build && node --env-file=../../../.env examples/basic.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "pg": "^8.16.3",
+    "toy-storage": "0.1.0",
+    "toy-storage-relational": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.15.5"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "toy-memory-eval-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "记忆系统评测后端：批量评测「对话 → extract → Fast → daily → Long」全链路",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test test/*.test.mjs",
+    "smoke:internal": "node cli.mjs --adapter internal --limit 3 --out runs/smoke-internal",
+    "smoke:longmemeval": "node cli.mjs --adapter longmemeval_v1 --data data/longmemeval_oracle.json --limit 2 --out runs/smoke-longmemeval"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "toy-embedding": "0.1.0",
+    "toy-embedding-openai-compatible": "0.1.0",
+    "toy-jev": "0.1.0",
+    "toy-jev-typesafe": "0.1.0",
+    "toy-llm": "0.1.0",
+    "toy-llm-openai-responses": "0.1.0",
+    "toy-memory-daily": "0.1.0",
+    "toy-memory-fast": "0.1.0",
+    "toy-memory-feedback": "0.1.0",
+    "toy-memory-long": "0.1.0",
+    "toy-memory-read": "0.1.0",
+    "toy-memory-space": "0.1.0",
+    "toy-memory-write": "0.1.0",
+    "toy-parallel-executor": "0.1.0",
+    "toy-storage": "0.1.0",
+    "toy-storage-pgvector": "0.1.0",
+    "toy-storage-postgres": "0.1.0",
+    "toy-storage-relational": "0.1.0",
+    "toy-storage-vector": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43"
+  },
+  "engines": {
+    "node": ">=22.6.0"
+  }
+}

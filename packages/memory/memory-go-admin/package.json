@@ -1,0 +1,39 @@
+{
+  "name": "toy-memory-go-admin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "面向 Go 记忆系统的运维管理能力：按用户/空间浏览 Fast 与 Long 记忆",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "toy-admin": "0.1.0",
+    "toy-memory-fast": "0.1.0",
+    "toy-memory-long": "0.1.0",
+    "toy-memory-daily": "0.1.0",
+    "toy-memory-space": "0.1.0",
+    "toy-storage": "0.1.0",
+    "toy-storage-relational": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

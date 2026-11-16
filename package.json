@@ -1,0 +1,53 @@
+{
+  "name": "ai-toy-agent-v4",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/storage/storage-relational",
+    "packages/storage/storage-vector",
+    "packages/storage/*",
+    "packages/utils/*",
+    "packages/llm/llm",
+    "packages/llm/*",
+    "packages/tools/*",
+    "packages/jev/jev",
+    "packages/jev/*",
+    "packages/embedding/embedding",
+    "packages/embedding/*",
+    "packages/session/session-storage",
+    "packages/session/session-data",
+    "packages/session/*",
+    "packages/memory/*",
+    "packages/core/*",
+    "packages/input-analysis/*",
+    "packages/backend/*",
+    "packages/device/*",
+    "packages/debug/*",
+    "packages/admin/admin-auth",
+    "packages/admin/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "start": "npm run build -w toy-backend-app && node --env-file=.env apps/backend/lib/index.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "eslint": "^10.14.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.9.10",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.72.1"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "extends": "../llm/tsconfig.json",
+  "include": ["src/**/*.ts"]
+}

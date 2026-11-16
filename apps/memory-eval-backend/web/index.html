@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>记忆系统评测</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>记忆系统评测</h1>
+      <div id="run-meta" class="muted">加载中…</div>
+      <div id="running-badge" class="running-badge hidden">评测运行中…</div>
+    </header>
+
+    <section id="start" class="card">
+      <h2>启动评测</h2>
+      <form id="start-form" class="start-form">
+        <label>
+          adapter
+          <select name="adapter">
+            <option value="internal" selected>internal（内部中文题）</option>
+            <option value="longmemeval_v1">longmemeval_v1（shared）</option>
+          </select>
+        </label>
+        <label>
+          limit
+          <input name="limit" type="number" min="1" value="3" />
+        </label>
+        <label>
+          start
+          <input name="start" type="number" min="0" value="0" />
+        </label>
+        <label class="data-field">
+          data（longmemeval）
+          <input name="data" type="text" value="data/longmemeval_oracle.json" />
+        </label>
+        <label>
+          并发
+          <input name="concurrency" type="number" min="1" max="20" value="10" />
+        </label>
+        <label class="checkbox">
+          <input name="csv" type="checkbox" />
+          导出 CSV
+        </label>
+        <button type="submit">开始评测</button>
+      </form>
+      <div id="start-msg" class="muted"></div>
+    </section>
+
+    <section id="progress" class="card">
+      <h2>进度</h2>
+      <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
+      <div id="progress-text" class="muted">—</div>
+    </section>
+
+    <section id="overall" class="card">
+      <h2>总体得分</h2>
+      <div id="overall-accuracy" class="big">—</div>
+    </section>
+
+    <section id="groups" class="card">
+      <h2>分能力得分</h2>
+      <div id="group-list"></div>
+    </section>
+
+    <section id="questions" class="card">
+      <h2>单题结果</h2>
+      <div id="question-list"></div>
+    </section>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "name": "toy-tools",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "本地工具注册、模型请求快照与执行",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs",
+    "example": "npm run build && node examples/basic.mjs"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "cordis": "^4.0.0-rc.12",
+    "toy-llm": "0.1.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

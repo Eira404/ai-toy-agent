@@ -1,0 +1,28 @@
+{
+  "name": "toy-web-search",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "web_search 内置工具插件",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": ["lib", "README.md"],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "toy-tools": "0.1.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

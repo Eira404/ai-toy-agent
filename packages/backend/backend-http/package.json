@@ -1,0 +1,34 @@
+{
+  "name": "toy-backend-http",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "后端 HTTP 服务：路由注册与本地地址监听",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs",
+    "example": "npm run build && node examples/basic.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

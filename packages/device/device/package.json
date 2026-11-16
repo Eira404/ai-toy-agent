@@ -1,0 +1,32 @@
+{
+  "name": "toy-device",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "玩偶（设备）业务门面：读取玩偶的年龄分级与人设预设",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs",
+    "example": "npm run build && node --env-file=../../../.env examples/basic.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "toy-debug-device": "0.1.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

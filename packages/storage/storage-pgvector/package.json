@@ -1,0 +1,39 @@
+{
+  "name": "toy-storage-pgvector",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "基于 PostgreSQL pgvector 扩展的向量存储 Cordis 插件",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs",
+    "test:live": "npm run build && node --env-file=../../../.env --test test/live.mjs",
+    "example": "npm run build && node --env-file=../../../.env examples/basic.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "pg": "^8.16.3",
+    "toy-storage": "0.1.0",
+    "toy-storage-vector": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.15.5",
+    "toy-storage-write-queue": "0.1.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

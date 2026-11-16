@@ -1,0 +1,73 @@
+# go-memory-service-backend 配置：结构在此，密钥走环境变量 ${...}（见 .env.example）
+
+storage:
+  databaseUrl: ${DATABASE_URL}
+  schema: ${DB_SCHEMA} # 空则用 Postgres 默认 schema（public）
+
+http:
+  host: ${HOST:-127.0.0.1}
+  port: ${PORT:-3100}
+
+# LLM 降级链：按序尝试，前一个可降级失败则尝试下一个
+llm:
+  adapters:
+    dashscope:
+      type: openai-responses
+      baseURL: ${DASHSCOPE_RESPONSES_BASE_URL}
+      apiKey: ${DASHSCOPE_API_KEY}
+  chains:
+    extract: # FastWrite.extract 用
+      - provider: dashscope
+        model: qwen3.5-flash
+      - provider: dashscope
+        model: qwen3.7-max
+    daily: # MemoryDaily 用
+      - provider: dashscope
+        model: qwen3.7-max
+
+# Embedding 降级链（Fast / MemoryRead / MemoryDaily 共用）
+embedding:
+  dimensions: ${EMBEDDING_DIMENSIONS:-1024}
+  adapters:
+    dashscope:
+      type: openai-compatible
+      baseURL: ${DASHSCOPE_EMBEDDING_BASE_URL}
+      apiKey: ${DASHSCOPE_API_KEY}
+  chains:
+    embed:
+      - provider: dashscope
+        model: qwen3.7-text-embedding-flash
+
+# JEV 降级链（MemoryDaily 用）；无 adapter 时自动禁用 JEV。
+# adapter：typesafe（HTTP 服务，model 由链条目指定）/ llm（桥接到 llm 段的 chain/model）
+jev:
+  adapters:
+    typesafe:
+      type: typesafe
+      baseURL: ${JEV_BASE_URL}
+      apiKey: ${JEV_API_KEY}
+    llm: # LLM 兜底：引用 llm 段的链（链会覆盖 model）
+      type: llm
+      llmProvider: daily # llm.chains.daily
+  chains:
+    main:
+      - provider: typesafe
+        model: jev-1.14.0
+      - provider: typesafe
+        model: jev-1.13.0
+      - provider: llm
+        model: qwen3.7-max # llmProvider 是链时被覆盖，这里仅作占位
+
+# 记忆各环节 → 链名的映射（值都是上面 chains 里的链名，不是模型名）
+memory:
+  extract:
+    llm: extract # FastWrite.llmProvider（extract() 才用到）
+  daily:
+    llm: daily # MemoryDaily.llmProvider
+    jev: main # MemoryDaily.jevProvider
+    embedding: embed # MemoryDaily.embeddingProvider
+  embedding: embed # FastMemory / MemoryRead 共用 embeddingProvider
+  scheduler:
+    dailyAt: ${DAILY_AT} # 不设则每个新建空间随机 02:00–02:59
+    timeZone: ${DAILY_TIME_ZONE:-Asia/Shanghai}
+    minPendingFast: ${DAILY_MIN_PENDING_FAST:-10}

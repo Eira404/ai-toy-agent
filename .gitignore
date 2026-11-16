@@ -1,0 +1,7 @@
+node_modules/
+dist/
+lib/
+.env
+*.log
+.dsh-acl-recovery/
+temp/

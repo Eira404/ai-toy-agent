@@ -1,0 +1,86 @@
+[
+  {
+    "questionId": "internal-001",
+    "type": "factual",
+    "question": "用户最喜欢的颜色是什么？",
+    "gold": "蓝色",
+    "sessions": [
+      {
+        "sessionId": "s1",
+        "turns": [
+          { "role": "user", "content": "你好，我最近特别喜欢蓝色，尤其是深蓝色。" },
+          { "role": "assistant", "content": "蓝色是很清新的颜色，深蓝显得沉稳。" },
+          { "role": "user", "content": "对，我觉得蓝色特别好看。" }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "internal-002",
+    "type": "temporal",
+    "question": "用户是什么时候开始学吉他的？",
+    "gold": "2025年3月15号",
+    "sessions": [
+      {
+        "sessionId": "s1",
+        "turns": [
+          { "role": "user", "content": "我决定开始学吉他了，就定在2025年3月15号那天报名。" },
+          { "role": "assistant", "content": "好的，学吉他需要坚持练习。" },
+          { "role": "user", "content": "我会每周练三次。" }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "internal-003",
+    "type": "update",
+    "question": "用户现在在哪个城市工作？",
+    "gold": "上海",
+    "sessions": [
+      {
+        "sessionId": "s1",
+        "turns": [
+          { "role": "user", "content": "我在北京工作，做后端开发。" },
+          { "role": "assistant", "content": "北京的机会很多。" }
+        ]
+      },
+      {
+        "sessionId": "s2",
+        "turns": [
+          { "role": "user", "content": "我换工作了，搬到上海去了，还是做后端开发。" },
+          { "role": "assistant", "content": "恭喜！上海也很好。" }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "internal-004",
+    "type": "preference",
+    "question": "用户更喜欢咖啡还是茶？",
+    "gold": "茶",
+    "sessions": [
+      {
+        "sessionId": "s1",
+        "turns": [
+          { "role": "user", "content": "比起咖啡，我更喜欢喝茶，尤其是龙井。" },
+          { "role": "assistant", "content": "龙井口感很清爽。" }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "internal-005",
+    "type": "abstention",
+    "question": "用户家里养了几只猫？",
+    "gold": "无法确定",
+    "sessions": [
+      {
+        "sessionId": "s1",
+        "turns": [
+          { "role": "user", "content": "今天天气不错，适合出门散步。" },
+          { "role": "assistant", "content": "是的，多出去走走对身体好。" }
+        ]
+      }
+    ]
+  }
+]

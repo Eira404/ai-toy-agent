@@ -1,0 +1,35 @@
+{
+  "name": "toy-backend-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Agent 后端门面：会话生命周期、对话调用与读取的统一接口",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs",
+    "example": "npm run build && node examples/basic.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "toy-backend-http": "0.1.0",
+    "toy-session": "0.1.0",
+    "toy-session-data": "0.1.0",
+    "toy-session-storage": "0.1.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

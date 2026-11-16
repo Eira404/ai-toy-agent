@@ -1,0 +1,33 @@
+{
+  "name": "toy-debug-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Debug 后端门面：把用户与设备的 debug 操作注册为 /debug/* 路由",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "toy-backend-http": "0.1.0",
+    "toy-debug-device": "0.1.0",
+    "toy-debug-user": "0.1.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

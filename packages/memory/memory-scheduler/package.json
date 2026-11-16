@@ -1,0 +1,38 @@
+{
+  "name": "toy-memory-scheduler",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "记忆定时任务调度：按空间配置的触发时间与待整合 Fast 阈值，到点自动运行 Daily（未来扩展 Weekly）",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs",
+    "example": "npm run build && node examples/basic.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "toy-storage": "0.1.0",
+    "toy-storage-relational": "0.1.0",
+    "toy-memory-fast": "0.1.0",
+    "toy-memory-daily": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

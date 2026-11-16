@@ -1,0 +1,37 @@
+{
+  "name": "toy-memory-read",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "记忆联合检索编排：共享 Query Embedding，并行 Fast 与 Long，返回分组正文与整体降级状态",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs",
+    "example": "npm run build && node examples/basic.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "toy-embedding": "0.1.0",
+    "toy-memory-fast": "0.1.0",
+    "toy-memory-long": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

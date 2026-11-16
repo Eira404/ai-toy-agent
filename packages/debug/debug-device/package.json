@@ -1,0 +1,38 @@
+{
+  "name": "toy-debug-device",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "仅供 debug 使用的玩偶（设备）表定义及创建方法",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs",
+    "example": "npm run build && node --env-file=../../../.env examples/basic.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "toy-storage": "0.1.0",
+    "toy-storage-relational": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "pg": "^8.16.3",
+    "toy-storage-postgres": "0.1.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

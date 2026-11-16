@@ -1,0 +1,39 @@
+{
+  "name": "toy-memory-fast",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Fast 证据层：记忆草稿追加、近期读取、向量索引补写、双通道检索与 Daily 消费入口",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs",
+    "example": "npm run build && node examples/basic.mjs",
+    "example:live": "npm run build && node --env-file=../../../.env examples/live.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "toy-storage": "0.1.0",
+    "toy-storage-relational": "0.1.0",
+    "toy-storage-vector": "0.1.0",
+    "toy-embedding": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

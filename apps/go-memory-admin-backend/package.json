@@ -1,0 +1,43 @@
+{
+  "name": "toy-go-memory-admin-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "提供给 Go 记忆系统的管理员后端启动入口（应用，非库）",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "start": "node --env-file=.env lib/index.js"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "toy-admin": "0.1.0",
+    "toy-admin-auth": "0.1.0",
+    "toy-admin-backend": "0.1.0",
+    "toy-backend-http": "0.1.0",
+    "toy-embedding": "0.1.0",
+    "toy-embedding-openai-compatible": "0.1.0",
+    "toy-jev": "0.1.0",
+    "toy-jev-typesafe": "0.1.0",
+    "toy-llm": "0.1.0",
+    "toy-llm-openai-responses": "0.1.0",
+    "toy-memory-daily": "0.1.0",
+    "toy-memory-fast": "0.1.0",
+    "toy-memory-feedback": "0.1.0",
+    "toy-memory-go-admin": "0.1.0",
+    "toy-memory-long": "0.1.0",
+    "toy-memory-space": "0.1.0",
+    "toy-parallel-executor": "0.1.0",
+    "toy-storage": "0.1.0",
+    "toy-storage-pgvector": "0.1.0",
+    "toy-storage-postgres": "0.1.0",
+    "toy-storage-relational": "0.1.0",
+    "toy-storage-vector": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

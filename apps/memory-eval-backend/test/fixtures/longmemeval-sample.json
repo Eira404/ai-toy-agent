@@ -1,0 +1,30 @@
+[
+  {
+    "question_id": "lm-001",
+    "question_type": "single-session-user",
+    "question": "What is the user's favorite color?",
+    "answer": "blue",
+    "answer_session_ids": ["s1"],
+    "haystack_session_ids": ["s1"],
+    "haystack_sessions": [
+      [
+        { "role": "user", "content": "My favorite color is blue." },
+        { "role": "assistant", "content": "Nice choice." }
+      ]
+    ]
+  },
+  {
+    "question_id": "lm-002_abs",
+    "question_type": "abstention",
+    "question": "How many cats does the user have?",
+    "answer": "The user never mentioned any cats.",
+    "answer_session_ids": [],
+    "haystack_session_ids": ["s1"],
+    "haystack_sessions": [
+      [
+        { "role": "user", "content": "The weather is nice today." },
+        { "role": "assistant", "content": "Indeed it is." }
+      ]
+    ]
+  }
+]

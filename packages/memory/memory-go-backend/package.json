@@ -1,0 +1,39 @@
+{
+  "name": "toy-memory-go-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "[TEMP] 仅供 Go conversation 调用的记忆读写 HTTP 门面：resolve-or-create 空间 + 自动 daily 调度",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs",
+    "example": "npm run build && node examples/basic.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "toy-backend-http": "0.1.0",
+    "toy-memory-read": "0.1.0",
+    "toy-memory-scheduler": "0.1.0",
+    "toy-memory-space": "0.1.0",
+    "toy-memory-write": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

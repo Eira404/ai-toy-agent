@@ -1,0 +1,37 @@
+{
+  "name": "toy-parallel-executor",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Cordis 命名任务池：受控并行、动态配置、取消、超时与重试",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "examples",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p test/tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs",
+    "example": "npm run build && node examples/basic.mjs",
+    "example:pools": "npm run build && node examples/pools.mjs",
+    "example:control": "npm run build && node examples/control.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

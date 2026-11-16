@@ -1,0 +1,38 @@
+{
+  "name": "toy-device-lifecycle",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "玩偶上下文插件：session 预处理落库设备预设，并向 system prompt 注入人设与年龄片段",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs",
+    "example": "npm run build && node examples/basic.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "toy-agent-loop": "0.1.0",
+    "toy-device": "0.1.0",
+    "toy-session": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "toy-session-data": "0.1.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

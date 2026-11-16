@@ -1,0 +1,37 @@
+{
+  "name": "toy-admin-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "管理员 HTTP 后端：把 admin 能力与账号接口挂载到 toy-backend-http",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p test/tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "example": "npm run build && node examples/basic.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "toy-admin": "0.1.0",
+    "toy-admin-auth": "0.1.0",
+    "toy-backend-http": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "toy-emotion-analysis",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "情绪分类预处理插件",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": ["lib", "README.md"],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "toy-agent-loop": "0.1.0",
+    "toy-model-support": "0.1.0",
+    "zod": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

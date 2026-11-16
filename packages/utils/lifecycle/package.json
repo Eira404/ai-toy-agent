@@ -1,0 +1,27 @@
+{
+  "name": "toy-lifecycle",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "预处理和后处理共用的依赖图执行器",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

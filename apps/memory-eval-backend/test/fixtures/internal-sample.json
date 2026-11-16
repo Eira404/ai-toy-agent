@@ -1,0 +1,30 @@
+[
+  {
+    "questionId": "int-1",
+    "type": "factual",
+    "question": "用户最喜欢的颜色是什么？",
+    "gold": "蓝色",
+    "sessions": [
+      {
+        "sessionId": "s1",
+        "turns": [
+          { "role": "user", "content": "我最喜欢蓝色。" },
+          { "role": "assistant", "content": "蓝色很好看。" },
+          { "role": "user", "content": "尤其是深蓝。" }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "int-2",
+    "type": "abstention",
+    "question": "用户养了几只猫？",
+    "gold": "无法确定",
+    "sessions": [
+      {
+        "sessionId": "s1",
+        "turns": [{ "role": "user", "content": "今天天气不错。" }]
+      }
+    ]
+  }
+]

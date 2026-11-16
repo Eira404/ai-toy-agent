@@ -1,0 +1,40 @@
+{
+  "name": "toy-admin-auth",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "管理员账号、登录会话与身份认证 Cordis 插件",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "migrations",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "test:live": "npm run build && node --env-file=../../../.env test/live.mjs",
+    "example": "npm run build && node examples/basic.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "toy-storage": "0.1.0",
+    "toy-storage-relational": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "pg": "^8.16.3",
+    "toy-storage-postgres": "0.1.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

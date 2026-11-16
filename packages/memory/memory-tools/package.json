@@ -1,0 +1,40 @@
+{
+  "name": "toy-memory-tools",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "记忆系统本地工具：memory_read 检索、memory_write 按 JEV 门控写入",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/**/*.test.mjs"
+  },
+  "dependencies": {
+    "cordis": "^4.0.0-rc.12",
+    "toy-tools": "0.1.0",
+    "toy-memory-feedback": "0.1.0",
+    "toy-memory-read": "0.1.0",
+    "toy-memory-write": "0.1.0",
+    "toy-memory-space": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "toy-storage": "0.1.0",
+    "toy-storage-relational": "0.1.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}
